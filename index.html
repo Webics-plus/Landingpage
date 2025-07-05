@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Webics Plus</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --blue-main: #1e40af;
+        --blue-hover: #1e3a8a;
+        --blue-shadow: rgba(30, 64, 175, 0.3);
+        --blue-shadow-light: rgba(30, 64, 175, 0.25);
+        --blue-shadow-hover: rgba(30, 58, 138, 0.4);
+      }
+
+      /* Reset & base */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(135deg, #e0f2fe, #ffffff);
+        color: #1e293b;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .container {
+        background: #fff;
+        border-radius: 16px;
+        max-width: 700px;
+        width: 90%;
+        max-height: 95vh;
+        padding: 40px 40px 30px;
+        box-shadow: 0 12px 30px var(--blue-shadow);
+        overflow-y: auto;
+        text-align: center;
+        color: #0f172a;
+        animation: fadeSlideIn 1s ease forwards;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      @keyframes fadeSlideIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      h1 {
+        font-size: 2.75rem;
+        color: var(--blue-main);
+        margin-bottom: 20px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      /* Rocket animation next to heading */
+      .rocket {
+        display: inline-block;
+        animation: floatUpDown 3s ease-in-out infinite;
+        font-size: 1.8rem;
+        user-select: none;
+        transform-origin: center bottom;
+      }
+
+      @keyframes floatUpDown {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      /* Emoji bounce effect */
+      .emoji-bounce {
+        display: inline-block;
+        animation: bounce 2.5s infinite;
+        transform-origin: center bottom;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-6px);
+        }
+      }
+
+      /* Trust image */
+      .trust-image {
+        max-width: 160px;
+        width: 100%;
+        height: 160px;
+        margin: 0 auto 25px;
+        border-radius: 50%;
+        border: 4px solid var(--blue-main);
+        object-fit: cover;
+        box-shadow: 0 6px 15px var(--blue-shadow);
+        transition: transform 0.3s ease;
+        cursor: default;
+      }
+      .trust-image:hover {
+        transform: scale(1.05);
+      }
+
+      p {
+        font-size: 1.1rem;
+        margin-bottom: 18px;
+        line-height: 1.6;
+        font-weight: 400;
+      }
+
+      .highlight {
+        font-weight: 700;
+        color: #1e40af;
+      }
+
+      /* Animated offer text */
+      .offer-text {
+        font-weight: 700;
+        color: #1e40af;
+        font-size: 1.3rem;
+        height: 34px;
+        margin: 20px 0 35px;
+        position: relative;
+        overflow: hidden;
+        min-height: 34px;
+      }
+
+      .offer-text span {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+        animation: slideText 9s infinite;
+        opacity: 0;
+        transform: translateY(100%);
+        will-change: transform, opacity;
+      }
+
+      .offer-text span:nth-child(1) {
+        animation-delay: 0s;
+      }
+      .offer-text span:nth-child(2) {
+        animation-delay: 3s;
+      }
+      .offer-text span:nth-child(3) {
+        animation-delay: 6s;
+      }
+
+      @keyframes slideText {
+        0% {
+          opacity: 0;
+          transform: translateY(100%);
+        }
+        10%,
+        30% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        40%,
+        100% {
+          opacity: 0;
+          transform: translateY(-100%);
+        }
+      }
+
+      /* Buttons container */
+      .btn-group {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        gap: 22px;
+        flex-wrap: wrap;
+      }
+
+      .cta-button {
+        background-color: var(--blue-main);
+        color: white;
+        padding: 16px 36px;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-decoration: none;
+        cursor: pointer;
+        box-shadow: 0 8px 20px var(--blue-shadow-light);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease,
+          transform 0.2s ease;
+        user-select: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-width: 220px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Pulse animation on hover */
+      .cta-button:hover,
+      .cta-button:focus {
+        background-color: var(--blue-hover);
+        box-shadow: 0 12px 28px var(--blue-shadow-hover);
+        transform: translateY(-3px) scale(1.03);
+        outline: none;
+        animation: pulse 1.2s ease-in-out;
+        z-index: 1;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          box-shadow: 0 12px 28px var(--blue-shadow-hover);
+        }
+        50% {
+          box-shadow: 0 18px 40px rgba(30, 58, 138, 0.6);
+        }
+      }
+
+      /* Emoji bounce inside buttons */
+      .btn-emoji {
+        display: inline-block;
+        animation: bounce 2.5s infinite;
+        transform-origin: center bottom;
+      }
+
+      /* Social links container */
+      .links {
+        margin-top: 45px;
+        font-size: 1rem;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        flex-wrap: wrap;
+      }
+
+      .links a {
+        color: var(--blue-main);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: color 0.3s ease;
+        font-weight: 600;
+      }
+
+      .links a:hover,
+      .links a:focus {
+        color: var(--blue-hover);
+        text-decoration: underline;
+        outline: none;
+      }
+
+      .links i {
+        font-size: 22px;
+        line-height: 1;
+        display: block;
+      }
+
+      /* Scrollbar styling for container */
+      .container::-webkit-scrollbar {
+        width: 8px;
+      }
+      .container::-webkit-scrollbar-track {
+        background: #f1f5f9;
+        border-radius: 10px;
+      }
+      .container::-webkit-scrollbar-thumb {
+        background-color: var(--blue-main);
+        border-radius: 10px;
+      }
+
+      /* Responsive */
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 2rem;
+        }
+        .trust-image {
+          max-width: 120px;
+          height: 120px;
+          margin-bottom: 20px;
+          border-width: 3px;
+        }
+        p {
+          font-size: 1rem;
+        }
+        .offer-text {
+          font-size: 1.1rem;
+          height: 28px;
+          margin: 15px 0 30px;
+          min-height: 55px;
+        }
+        .btn-group {
+          flex-direction: column;
+          gap: 16px;
+          margin-top: 20px;
+        }
+        .cta-button {
+          min-width: 100%;
+          font-size: 1rem;
+          padding: 14px 24px;
+        }
+        .links {
+          margin-top: 35px;
+          font-size: 0.9rem;
+          gap: 15px;
+        }
+        .links a {
+          gap: 6px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="container"
+      role="main"
+      aria-label="Free business consultation information"
+    >
+      <h1>Build Your Business Online With Expert Guidance</h1>
+
+      <!-- Trust-building image -->
+      <img
+        src="images/dp2.png"
+        alt="Sunny Mondal"
+        class="trust-image"
+        loading="lazy"
+        width="160"
+        height="160"
+      />
+
+      <!-- Animated offer text -->
+      <div class="offer-text" aria-live="polite" aria-atomic="true">
+        <span>🎉 Special Offer: FREE Consultation Call!</span>
+        <span>⏳ Limited Slots Available — Book Now!</span>
+        <span>📈 Grow Your Business Online with Webics Plus</span>
+      </div>
+
+      <p>
+        Hello, I’m <span class="highlight">Sunny Mondal</span>, Founder and
+        Business Consultant at <span class="highlight">Webics Plus</span>.
+      </p>
+
+      <p>
+        I help local and offline businesses create a strong online presence that
+        brings in more leads and helps grow their business.
+      </p>
+
+      <p>
+        <strong>Need a website that works for your business?</strong><br />
+        <strong
+          >Having trouble growing on Instagram, Facebook, or Google?</strong
+        ><br />
+        <strong>Want more quality leads and higher sales?</strong>
+      </p>
+
+      <p>
+        🎯 <strong>Book your FREE Consultation Call</strong> today and I’ll
+        personally guide you on:
+      </p>
+
+      <p>
+        ✔️ How to improve your online presence<br />
+        ✔️ How to generate more leads & sales<br />
+        ✔️ Which platforms & strategies will work best for your business
+      </p>
+
+      <div class="btn-group">
+        <a
+          class="cta-button"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Book a Free Consultation Call"
+        >
+          <i class="fas fa-phone-alt btn-emoji" aria-hidden="true"></i> Book a
+          Free Consultation Call
+        </a>
+        <a
+          class="cta-button"
+          href="https://docs.google.com/spreadsheets/d/your-google-sheet-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="View your inquiry and appointment details"
+        >
+          <i class="fas fa-file-alt btn-emoji" aria-hidden="true"></i> Submit
+          Your Inquiry & Schedule
+        </a>
+      </div>
+
+      <div class="links" aria-label="Social media links">
+        <a
+          href="https://webicsplus.netlify.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Website"
+        >
+          <i class="fas fa-globe"></i> Website
+        </a>
+        <a
+          href="https://www.instagram.com/webicsplus/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a
+          href="https://www.facebook.com/webicsplus/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
+          <i class="fab fa-facebook-f"></i> Facebook
+        </a>
+        <a
+          href="https://g.co/kgs/1s6MWrB"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Google Business"
+        >
+          <i class="fas fa-map-marker-alt"></i> Google Business
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
