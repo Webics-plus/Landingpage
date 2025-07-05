@@ -45,11 +45,11 @@
 
       .container {
         background: #fff;
-        border-radius: 16px;
+        border-radius: 10px 0px 0px 10px;
         max-width: 700px;
         width: 90%;
         max-height: 95vh;
-        padding: 40px 40px 30px;
+        padding: 30px 40px 40px;
         box-shadow: 0 12px 30px var(--blue-shadow);
         overflow-y: auto;
         text-align: center;
@@ -76,6 +76,7 @@
         align-items: center;
         justify-content: center;
         gap: 8px;
+        margin-top: 0px;
       }
 
       /* Rocket animation next to heading */
@@ -304,21 +305,22 @@
       /* Responsive */
       @media (max-width: 600px) {
         h1 {
-          font-size: 2rem;
+          font-size: 1.5rem;
         }
         .trust-image {
           max-width: 120px;
           height: 120px;
-          margin-bottom: 20px;
+          margin-bottom: 10px;
           border-width: 3px;
+          margin-top: 0;
         }
         p {
-          font-size: 1rem;
+          font-size: 0.9rem;
         }
         .offer-text {
           font-size: 1.1rem;
           height: 28px;
-          margin: 15px 0 30px;
+          margin: 15px 0 10px;
           min-height: 55px;
         }
         .btn-group {
@@ -328,18 +330,52 @@
         }
         .cta-button {
           min-width: 100%;
-          font-size: 1rem;
+          font-size: 0.8rem;
           padding: 14px 24px;
         }
         .links {
           margin-top: 35px;
           font-size: 0.9rem;
-          gap: 15px;
+          gap: 25px;
         }
         .links a {
           gap: 6px;
         }
+        .container {
+          padding: 30px 22px;
+        }
       }
+
+      .arrow-bounce {
+  display: inline-block;
+  animation: arrowBounce 1.4s infinite ease-in-out;
+  transform-origin: center;
+  padding-bottom: 5px;
+}
+
+@keyframes arrowBounce {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+}
+
+a[aria-label="Website"]:hover,
+a[aria-label="Instagram"]:hover,
+a[aria-label="Facebook"]:hover,
+a[aria-label="WhatsApp"]:hover,
+a[aria-label="Google Business"]:hover,
+a[aria-label="Website"]:hover i,
+a[aria-label="Instagram"]:hover i,
+a[aria-label="Facebook"]:hover i,
+a[aria-label="WhatsApp"]:hover i,
+a[aria-label="Google Business"]:hover i {
+  text-decoration: none !important;
+}
+
+
     </style>
   </head>
   <body>
@@ -377,7 +413,7 @@
         brings in more leads and helps grow their business.
       </p>
 
-      <p>
+      <p style="font-style: italic;">
         <strong>Need a website that works for your business?</strong><br />
         <strong
           >Having trouble growing on Instagram, Facebook, or Google?</strong
@@ -390,6 +426,16 @@
         personally guide you on:
       </p>
 
+      <a
+        class="cta-button"
+        href="https://calendly.com/webicsplus/discovery-call"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Book a Free Consultation Call"
+      >
+        <span class="arrow-bounce">👉</span> Click Here to Book Now
+      </a>
+
       <p>
         ✔️ How to improve your online presence<br />
         ✔️ How to generate more leads & sales<br />
@@ -399,7 +445,7 @@
       <div class="btn-group">
         <a
           class="cta-button"
-          href="#"
+          href="https://calendly.com/webicsplus/discovery-call"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Book a Free Consultation Call"
@@ -409,13 +455,13 @@
         </a>
         <a
           class="cta-button"
-          href="https://docs.google.com/spreadsheets/d/your-google-sheet-link"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSf_2fEZ06zlVYMsSAU1paQfW3G_09nyxOHMmfq3IEY8SSBhUQ/viewform?usp=sharing&ouid=111714570387299864331"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="View your inquiry and appointment details"
         >
           <i class="fas fa-file-alt btn-emoji" aria-hidden="true"></i> Submit
-          Your Inquiry & Schedule
+          Your Inquiry
         </a>
       </div>
 
@@ -426,7 +472,7 @@
           rel="noopener noreferrer"
           aria-label="Website"
         >
-          <i class="fas fa-globe"></i> Website
+          <i class="fas fa-globe"></i>
         </a>
         <a
           href="https://www.instagram.com/webicsplus/"
@@ -434,23 +480,32 @@
           rel="noopener noreferrer"
           aria-label="Instagram"
         >
-          <i class="fab fa-instagram"></i> Instagram
+          <i class="fab fa-instagram"></i>
         </a>
         <a
-          href="https://www.facebook.com/webicsplus/"
+          href="https://www.facebook.com/share/HbsqLc9KLDzQRNJm/?mibextid=qi2Omg"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Facebook"
         >
-          <i class="fab fa-facebook-f"></i> Facebook
+          <i class="fab fa-facebook-f"></i>
         </a>
+        <a
+          href="https://wa.me/918617353435"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+        >
+          <i class="fab fa-whatsapp"></i>
+        </a>
+
         <a
           href="https://g.co/kgs/1s6MWrB"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Google Business"
         >
-          <i class="fas fa-map-marker-alt"></i> Google Business
+          <i class="fas fa-map-marker-alt"></i>
         </a>
       </div>
     </div>
